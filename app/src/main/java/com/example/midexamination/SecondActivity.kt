@@ -33,6 +33,7 @@ class SecondActivity : AppCompatActivity() {
         year = calendar[Calendar.YEAR]
         monthYear = calendar[Calendar.MONTH]
         dayMonth = calendar[Calendar.DAY_OF_MONTH]
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             dataPickerDialog = DatePickerDialog(this, { _, p1, p2, p3 ->
                 val date = p1.toString()+"年"+(p2+1)+"月"+p3+"日"

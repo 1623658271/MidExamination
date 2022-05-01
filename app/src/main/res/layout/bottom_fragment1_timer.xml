@@ -125,8 +125,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_first_bottom_change"
-            android:layout_width="127dp"
-            android:layout_height="108dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:backgroundTint="#ff0000ff"
             android:text="切换"
             android:textColor="@color/white"
@@ -134,9 +134,10 @@
             app:cornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.875"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.503" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

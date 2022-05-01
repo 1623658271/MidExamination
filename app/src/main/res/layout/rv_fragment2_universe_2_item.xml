@@ -3,24 +3,23 @@
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="center">
+    android:background="#33ff">
 
-    <ImageButton
-        android:id="@+id/iv_rv_first_bottom_image"
-        android:layout_width="200dp"
-        android:layout_gravity="center"
+    <ImageView
+        android:id="@+id/rv_first_universe_2"
+        android:layout_width="180dp"
         android:src="@drawable/ic_star"
-        android:checkable="true"
-        android:layout_height="200dp"/>
-
+        android:layout_height="180dp" />
     <TextView
-        android:id="@+id/tv_rv_first_bottom_name"
+        android:background="@drawable/text_style"
+        android:backgroundTint="#88ff"
+        android:id="@+id/tv_first_universe_2_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="星球名称"
         android:layout_gravity="center"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:text="星球名称"
+        android:gravity="center"/>
 
 </LinearLayout>

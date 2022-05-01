@@ -11,15 +11,17 @@ import com.example.midexamination.R
  * description ： TODO:类的作用
  * author : lfy
  * email : 1623658271@qq.com
- * date : 2022/4/30 16:16
+ * date : 2022/5/1 14:20
  */
-class MainFragment: Fragment() {
+class FragmentUniverse:Fragment() {
+    private lateinit var view0:View
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        view0 = inflater.inflate(R.layout.activity_main_fragment_2_universe,container,false)
+        return view0
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

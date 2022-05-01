@@ -13,15 +13,17 @@ import androidx.room.RoomDatabase
  */
 @Database(entities = [StarData::class], version = 1)
 abstract class MyDatabase : RoomDatabase(){
-    abstract fun getStudentDao():StarDataDao
+    abstract fun getStarDao():StarDataDao
 
     companion object{
+
         private var instance:MyDatabase? = null
 
         fun getDatabase(context: Context):MyDatabase{
             if(instance == null){
                 instance = Room.databaseBuilder(context,MyDatabase::class.java,"star.db")
                     .allowMainThreadQueries()
+                    .createFromAsset("stars.db")
                     .build()
             }
             return instance as MyDatabase

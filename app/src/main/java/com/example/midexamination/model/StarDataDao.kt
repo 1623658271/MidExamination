@@ -21,7 +21,7 @@ interface StarDataDao {
     fun delete(starData: StarData)
 
     @Query("SELECT * FROM Star")
-    fun getAllStarData():List<StarData>
+    fun getAllStarData():MutableList<StarData>
 
     @Query("SELECT * FROM Star where name = :name")
     fun getStarDataByName(name:String):StarData
