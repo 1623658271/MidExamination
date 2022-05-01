@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/FL"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:background="#000000"
+        android:layout_height="1dp"/>
+
+    <RadioGroup
+        android:id="@+id/RG"
+        android:checkedButton="@id/RB_time_counter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:chipSpacingHorizontal="30sp"
+        app:singleLine="true"
+        app:singleSelection="true"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/RB_time_counter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:width="0dp"
+            android:gravity="center"
+            android:checkable="true"
+            android:text="计时器"
+            android:textSize="25sp" />
+
+        <RadioButton
+            android:id="@+id/RB_universe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:checkable="true"
+            android:text="universe"
+            android:textSize="25sp" />
+
+        <RadioButton
+            android:id="@+id/RB_my"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="我的"
+            android:checkable="true"
+            android:textSize="25sp" />
+    </RadioGroup>
+
+</LinearLayout>
