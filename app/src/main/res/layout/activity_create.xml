@@ -126,6 +126,7 @@
             android:textSize="20sp" />
 
         <EditText
+            android:id="@+id/et_create_remark"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:importantForAutofill="auto" />
@@ -133,6 +134,7 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/mBtn_create_newStar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"

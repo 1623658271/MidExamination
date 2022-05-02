@@ -30,6 +30,20 @@ class ImageButtonSelectedUtil {
             }
         }
     }
+    fun selectButton(buttonList: MutableList<ImageButton>, color: Int,textViewList:MutableList<TextView>,position:Int){
+        for (i in 0 until buttonList.size){
+            Log.d(TAG, "selectButton: "+buttonList.size)
+            if(i==position){
+                if(buttonList[i].isSelected) {
+                    buttonList[i].isSelected = true
+                    textViewList[i].setTextColor(color)
+                }
+            }else{
+                buttonList[i].isSelected = false
+                textViewList[i].setTextColor(Color.BLACK)
+            }
+        }
+    }
     fun cancel(buttonList: MutableList<ImageButton>,textViewList:MutableList<TextView>){
         for (button in buttonList){
             button.isSelected = false
@@ -37,5 +51,15 @@ class ImageButtonSelectedUtil {
         for(text in textViewList){
             text.setTextColor(Color.BLACK)
         }
+    }
+    fun isOne(buttonList: MutableList<ImageButton>):Boolean{
+        var flag:Boolean = false
+        for(button in buttonList){
+            if(button.isSelected){
+                flag = true
+                break
+            }
+        }
+        return flag
     }
 }

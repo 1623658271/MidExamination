@@ -6,12 +6,11 @@
     android:background="#33ff">
 
     <ImageView
-        android:id="@+id/rv_first_universe_2"
-        android:layout_width="180dp"
+        android:id="@+id/iv_first_universe_2"
+        android:layout_width="100dp"
         android:src="@drawable/ic_star"
-        android:layout_height="180dp" />
+        android:layout_height="100dp" />
     <TextView
-        android:background="@drawable/text_style"
         android:backgroundTint="#88ff"
         android:id="@+id/tv_first_universe_2_name"
         android:layout_width="wrap_content"

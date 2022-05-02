@@ -17,13 +17,14 @@
         <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/activity_main_fragment_2_universe.xml" value="0.25" />
         <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/activity_main_fragment_2_universe_fragment_1.xml" value="0.10486322188449848" />
         <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/activity_main_fragment_2_universe_fragment_2.xml" value="0.10486322188449848" />
-        <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/activity_main_fragment_3_my.xml" value="0.10486322188449848" />
+        <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/activity_main_fragment_3_my.xml" value="0.25" />
         <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/bottom_first.xml" value="0.25" />
         <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/bottom_first_universe.xml" value="0.2171875" />
         <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/bottom_first_universe_2.xml" value="0.10486322188449848" />
         <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/bottom_fragment1_timer.xml" value="0.25" />
-        <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/bottom_fragment2_universe_1.xml" value="0.10486322188449848" />
-        <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/bottom_fragment2_universe_2.xml" value="0.10486322188449848" />
+        <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/bottom_fragment2_universe_1.xml" value="0.25" />
+        <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/bottom_fragment2_universe_2.xml" value="0.25" />
+        <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/bottom_fragment3_create.xml" value="0.25" />
         <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/fragment_main.xml" value="0.25" />
         <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/fragment_universe_1.xml" value="0.10486322188449848" />
         <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/layout_universe.xml" value="0.2171875" />
@@ -31,8 +32,8 @@
         <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/rv_first_bottom_item.xml" value="0.25" />
         <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/rv_first_universe_2_item.xml" value="0.165" />
         <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/rv_first_universe_item.xml" value="0.2171875" />
-        <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/rv_fragment2_universe_1_item.xml" value="0.10486322188449848" />
-        <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/rv_fragment2_universe_2_item.xml" value="0.10486322188449848" />
+        <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/rv_fragment2_universe_1_item.xml" value="0.165" />
+        <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/rv_fragment2_universe_2_item.xml" value="0.25" />
         <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/rv_second_appearance_item.xml" value="0.335" />
         <entry key="..\:/Android_Second/MidExamination/app/src/main/res/layout/rv_second_new_image_select.xml" value="0.22083333333333333" />
         <entry key="..\:/Android_Second/MidExamination/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1195" />

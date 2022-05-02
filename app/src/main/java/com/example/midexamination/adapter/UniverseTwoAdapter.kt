@@ -8,21 +8,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.midexamination.R
 import com.example.midexamination.model.StarData
 import com.example.midexamination.utils.ImageButtonSelectedUtil
-import kotlin.collections.ArrayList
 
 /**
  * description ： TODO:类的作用
  * author : lfy
  * email : 1623658271@qq.com
- * date : 2022/5/1 11:15
+ * date : 2022/5/2 13:13
  */
-class TimerBottomRVAdapter(private val context: Context, var starList:List<StarData>): RecyclerView.Adapter<TimerBottomRVAdapter.ViewHolder>() {
+class UniverseTwoAdapter(private val context: Context, var starList:List<StarData>): RecyclerView.Adapter<UniverseTwoAdapter.ViewHolder>() {
     private var mOnItemSelectedListener:OnItemSelectedListener? = null
     private var mCreateListener:CreateListener? = null
     private var buttonList:MutableList<ImageButton> = ArrayList()
@@ -51,7 +51,6 @@ class TimerBottomRVAdapter(private val context: Context, var starList:List<StarD
                 .placeholder(R.drawable.ic_star)
                 .into(holder.mImage)
             holder.mName.text = starData.name
-            Log.d(TAG, "onBindViewHolder: ")
             if (mOnItemSelectedListener != null) {
                 holder.mImage.setOnClickListener {
                     cancelAll()
@@ -78,7 +77,7 @@ class TimerBottomRVAdapter(private val context: Context, var starList:List<StarD
 
     @SuppressLint("NotifyDataSetChanged")
     fun refreshData(newData: List<StarData>) {
-        this.starList = newData
+        this.starList = newData.filter { it.bigTime!="已点亮" }
         this.notifyDataSetChanged()
     }
 

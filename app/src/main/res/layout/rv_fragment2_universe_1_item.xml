@@ -4,10 +4,25 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:id="@+id/ll_universe_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <ImageButton
         android:id="@+id/ib_universe1"
         android:layout_width="100dp"
+        android:layout_gravity="center"
         android:layout_height="100dp"
         android:background="@drawable/ic_star" />
+    <TextView
+        android:id="@+id/tv_universe1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:text="未点亮"/>
+    </LinearLayout>
 
 </LinearLayout>
