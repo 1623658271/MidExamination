@@ -43,14 +43,13 @@ class CountService : Service() {
 
         val notification1: Notification = Notification.Builder(this, "important")
             .setContentTitle("正在帮您照看宇宙")
-            .setContentText("时刻准备着通知你点亮星球")
+            .setContentText("时刻准备(=-=)着通知你点亮星球")
             .setWhen(System.currentTimeMillis())
             .setSmallIcon(R.drawable.ic_btn_speak_now)
             .setContentIntent(pi)
             .build()
         startForeground(1, notification1)
-
-        var  sendWorkRequest = PeriodicWorkRequest.Builder(SendService::class.java,15,TimeUnit.MINUTES)
+        var sendWorkRequest = PeriodicWorkRequest.Builder(SendService::class.java,15,TimeUnit.MINUTES)
             .addTag("通知更新星球的work")
             .setInitialDelay(5,TimeUnit.SECONDS)
             .setBackoffCriteria(
@@ -59,38 +58,6 @@ class CountService : Service() {
                 TimeUnit.SECONDS)
             .build()
         WorkManager.getInstance(this).enqueue(sendWorkRequest)
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun sendMessage(){
-        var notificationChannel: NotificationChannel?
-        var notificationManager:NotificationManager? = null
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            notificationChannel =
-                NotificationChannel("important", "Important", NotificationManager.IMPORTANCE_LOW)
-            notificationManager =
-                (getSystemService(NOTIFICATION_SERVICE) as NotificationManager)
-            notificationManager.createNotificationChannel(notificationChannel)
-        }
-        var starList = StarViewModel.getStarLiveData(this).value!!
-        var stringList:MutableList<String> = ArrayList()
-        val dateFormat = SimpleDateFormat("yyyy年MM月dd日")
-        val data= dateFormat.format(Date())
-        for(i in starList){
-            if(i.bigTime == data){
-                stringList.add(i.name)
-            }
-        }
-        val intent2 = Intent(this,MainActivity::class.java)
-        val pi = PendingIntent.getActivity(this, 0, intent2, 0)
-        val notification2: Notification = Notification.Builder(this, "important")
-            .setContentTitle("点亮通知")
-            .setContentText("有"+stringList.size+"个星球可以点亮啦")
-            .setWhen(System.currentTimeMillis())
-            .setSmallIcon(R.drawable.ic_btn_speak_now)
-            .setContentIntent(pi)
-            .build()
-        notificationManager?.notify(2,notification2)
     }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {

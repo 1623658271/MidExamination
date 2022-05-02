@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
 import com.example.midexamination.R
 import com.example.midexamination.SecondActivity
@@ -32,6 +33,7 @@ import java.util.*
  * date : 2022/5/2 10:50
  */
 class FragmentUniverse2(context:Context):Fragment() {
+    private lateinit var mSwipeRefreshLayout: SwipeRefreshLayout
     private lateinit var view0: View
     private var context0 = context
     private var p = 0
@@ -62,6 +64,7 @@ class FragmentUniverse2(context:Context):Fragment() {
     private fun init(){
         mRecyclerView = view0.findViewById(R.id.rv_universe_2)
         mStarList = StarViewModel.getStarLiveData(context0).value!!
+        mSwipeRefreshLayout = view0.findViewById(R.id.universe2_refresh)
 
         mRVAdapter = UniverseTwoAdapter(context0,mStarList.filter { it.bigTime!= "已点亮"})
 
@@ -96,6 +99,10 @@ class FragmentUniverse2(context:Context):Fragment() {
             }else{
                 Toast.makeText(context0,"你已经点亮它了呀",Toast.LENGTH_SHORT).show()
             }
+        }
+        mSwipeRefreshLayout.setOnRefreshListener {
+            mRVAdapter.refreshData(StarViewModel.getStarLiveData(context0).value!!)
+            mSwipeRefreshLayout.isRefreshing = false
         }
     }
 

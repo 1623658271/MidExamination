@@ -1,10 +1,12 @@
 package com.example.midexamination.service
 
 import android.R
-import android.app.Notification
-import android.app.PendingIntent
+import android.app.*
 import android.content.Context
 import android.content.Intent
+import android.os.Build
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.example.midexamination.MainActivity
@@ -22,10 +24,40 @@ import kotlin.collections.ArrayList
  */
 class SendService(context: Context, workerParams: WorkerParameters) :
     Worker(context, workerParams) {
-    private var context = context
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun doWork(): Result {
-
+        var notificationChannel: NotificationChannel?
+        var notificationManager: NotificationManager? = null
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationChannel =
+                NotificationChannel("important", "Important", NotificationManager.IMPORTANCE_LOW)
+            notificationManager =
+                (applicationContext.getSystemService(Service.NOTIFICATION_SERVICE) as NotificationManager)
+            notificationManager.createNotificationChannel(notificationChannel)
+        }
+        var starList = StarViewModel.getStarLiveData(applicationContext).value!!
+        var stringList:MutableList<String> = ArrayList()
+        val dateFormat = SimpleDateFormat("yyyy年MM月dd日")
+        val data= dateFormat.format(Date())
+        for(i in starList){
+            if(i.bigTime == data){
+                stringList.add(i.name)
+            }
+        }
+        if(stringList.size>0) {
+            val intent2 = Intent(applicationContext, MainActivity::class.java)
+            val pi = PendingIntent.getActivity(applicationContext, 0, intent2, 0)
+            val notification2: Notification = Notification.Builder(applicationContext, "important")
+                .setContentTitle("星球点亮通知")
+                .setContentText("有" + stringList.size + "个星球可以点亮啦")
+                .setWhen(System.currentTimeMillis())
+                .setSmallIcon(R.drawable.ic_btn_speak_now)
+                .setContentIntent(pi)
+                .build()
+            notificationManager?.notify(2, notification2)
+        }
         return Result.success()
     }
+
 }

@@ -114,7 +114,7 @@ class SecondActivity : AppCompatActivity() {
                 database.getStarDao().insert(StarData(edNewName.text.toString(),
                 starDataList[p],0,tvNewTime.text.toString(),edNewRemark.text.toString()))
 
-                StarViewModel.getStarLiveData(this).postValue(database.getStarDao().getAllStarData())
+                StarViewModel.getStarLiveData(this).value = (database.getStarDao().getAllStarData())
                 Toast.makeText(this,"创建成功!",Toast.LENGTH_SHORT).show()
                 finish()
             }else{
