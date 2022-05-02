@@ -32,7 +32,7 @@ class HonorActivity : AppCompatActivity() {
         timeRecyclerView = findViewById(R.id.rv_honor1_totalTime)
 
         numberList = listOf(2,4,6,8,10,12,14,16,18,20).toMutableList()
-        timeList = listOf(5,10,15,20,25,30,35,40,45,50).toMutableList()
+        timeList = listOf(5,10,20,30,40,60,90,120,150,200).toMutableList()
 
         numberAdapter = NumberRVAdapter(this,mStarDataList,numberList)
         timeAdapter = TimeRVAdapter(this,mStarDataList,timeList)
