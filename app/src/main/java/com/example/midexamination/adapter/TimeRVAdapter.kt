@@ -39,6 +39,6 @@ class TimeRVAdapter(private val context: Context, var starList:MutableList<StarD
     }
 
     override fun getItemCount(): Int {
-        return starList.size
+        return numberList.size
     }
 }
