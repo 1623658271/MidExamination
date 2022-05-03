@@ -161,6 +161,8 @@ class FragmentTimer(context: Context): Fragment(),FragmentTimerViewChanges{
             .placeholder(R.drawable.ic_star)
             .into(mImageMain)
         mChip.text = sharedPreferences.getString("name",mStarList[now].name)
+        mName.text = sharedPreferences.getString("name",mStarList[now].name)
+        mData.text = mStarList[now].bigTime
         mImageView.setOnLongClickListener {
             true
         }
