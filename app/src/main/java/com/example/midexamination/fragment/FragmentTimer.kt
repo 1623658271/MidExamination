@@ -217,18 +217,4 @@ class FragmentTimer(context: Context): Fragment(),FragmentTimerViewChanges{
     override fun onResume() {
         super.onResume()
     }
-
-    /**
-     * 将字符串形式转换为long时间形式
-     */
-    fun convertStrTimeToLong(strTime:String):Long {
-        var timeArray = strTime.split(":")
-        var longTime=0
-        if (timeArray.size==2) {//如果时间是MM:SS格式
-            longTime=Integer.parseInt(timeArray[0])*1000*60+Integer.parseInt(timeArray[1])*1000
-        }else if (timeArray.size==3){//如果时间是HH:MM:SS格式
-            longTime=Integer.parseInt(timeArray[0])*1000*60*60+Integer.parseInt(timeArray[1])*1000*60+Integer.parseInt(timeArray[0])*1000
-        }
-        return SystemClock.elapsedRealtime()-longTime
-    }
 }
