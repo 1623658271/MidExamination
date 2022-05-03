@@ -43,7 +43,7 @@ class CountService : Service() {
 
         val notification1: Notification = Notification.Builder(this, "important")
             .setContentTitle("正在帮您照看宇宙")
-            .setContentText("每15分钟查看是否有星球可点亮")
+            .setContentText("每隔一段时间查看是否有星球可点亮")
             .setWhen(System.currentTimeMillis())
             .setSmallIcon(R.drawable.ic_btn_speak_now)
             .setContentIntent(pi)
