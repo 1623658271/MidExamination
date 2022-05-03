@@ -34,10 +34,8 @@ class ImageButtonSelectedUtil {
         for (i in 0 until buttonList.size){
             Log.d(TAG, "selectButton: "+buttonList.size)
             if(i==position){
-                if(buttonList[i].isSelected) {
-                    buttonList[i].isSelected = true
-                    textViewList[i].setTextColor(color)
-                }
+                buttonList[i].isSelected = true
+                textViewList[i].setTextColor(color)
             }else{
                 buttonList[i].isSelected = false
                 textViewList[i].setTextColor(Color.BLACK)

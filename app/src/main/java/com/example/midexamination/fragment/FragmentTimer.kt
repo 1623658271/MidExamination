@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.SystemClock
+import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -78,7 +79,7 @@ class FragmentTimer(context: Context): Fragment(),FragmentTimerViewChanges{
 
         chronometer = view0.findViewById(R.id.chronometer)
         chronometer.format = "%s"
-        chronometer.base = sharedPreferences.getLong("time",SystemClock.elapsedRealtime())
+        chronometer.base = SystemClock.elapsedRealtime()-sharedPreferences.getLong("time",0)
         mImageMain = view0.findViewById(R.id.iv_main)
         mChip = view0.findViewById(R.id.chip_main)
         bottomDialog = BottomSheetDialog(context0)
@@ -121,7 +122,7 @@ class FragmentTimer(context: Context): Fragment(),FragmentTimerViewChanges{
         }
 
         mCheckButton.setOnClickListener {
-            if(mRVAdapter.isSelectedOne()) {
+            if(!TextUtils.isEmpty(mName.text)) {
                 Glide.with(this)
                     .load(mStarList[p].url)
                     .placeholder(R.drawable.ic_star)
@@ -203,7 +204,7 @@ class FragmentTimer(context: Context): Fragment(),FragmentTimerViewChanges{
         editer.apply {
             putString("name",mStarList[now].name)
             putString("url",mStarList[now].url)
-            putLong("time",chronometer.base)
+            putLong("time",SystemClock.elapsedRealtime()-chronometer.base)
             putInt("now",now)
             apply()
         }

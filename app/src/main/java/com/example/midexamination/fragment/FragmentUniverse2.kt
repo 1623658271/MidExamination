@@ -102,6 +102,9 @@ class FragmentUniverse2(context:Context):Fragment() {
         }
         mSwipeRefreshLayout.setOnRefreshListener {
             mRVAdapter.refreshData(StarViewModel.getStarLiveData(context0).value!!)
+            mRVAdapter.clearButtonList()
+            mStarList = mStarList.filter { it.bigTime!="已点亮" }.toMutableList()
+            set()
             mSwipeRefreshLayout.isRefreshing = false
         }
     }
@@ -115,7 +118,6 @@ class FragmentUniverse2(context:Context):Fragment() {
             Toast.makeText(context0,"点亮成功！",Toast.LENGTH_SHORT).show()
             mStarList[p].bigTime = "已点亮"
             MyDatabase.getDatabase(context0).getStarDao().update(mStarList[p])
-            mRVAdapter.refreshData(mStarList)
             set()
         }else{
             Toast.makeText(context0,"未到指定时间哦,到时候会通知你的",Toast.LENGTH_SHORT).show()
@@ -125,6 +127,7 @@ class FragmentUniverse2(context:Context):Fragment() {
     fun set(){
         mRVAdapter.setOnItemSelectedListener(object :UniverseTwoAdapter.OnItemSelectedListener{
             override fun onItemSelected(view: View, position: Int) {
+                Log.d(TAG, "onItemSelected: $position\n"+mStarList.size)
                 Glide.with(context0)
                     .load(mStarList[position].url)
                     .placeholder(R.drawable.ic_star)

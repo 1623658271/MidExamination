@@ -1,6 +1,7 @@
 package com.example.midexamination.service
 
 import android.R
+import android.annotation.SuppressLint
 import android.app.*
 import android.content.Context
 import android.content.Intent
@@ -25,17 +26,9 @@ import kotlin.collections.ArrayList
 class SendService(context: Context, workerParams: WorkerParameters) :
     Worker(context, workerParams) {
 
+    @SuppressLint("UnspecifiedImmutableFlag", "SimpleDateFormat")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun doWork(): Result {
-        var notificationChannel: NotificationChannel?
-        var notificationManager: NotificationManager? = null
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            notificationChannel =
-                NotificationChannel("important", "Important", NotificationManager.IMPORTANCE_LOW)
-            notificationManager =
-                (applicationContext.getSystemService(Service.NOTIFICATION_SERVICE) as NotificationManager)
-            notificationManager.createNotificationChannel(notificationChannel)
-        }
         var starList = StarViewModel.getStarLiveData(applicationContext).value!!
         var stringList:MutableList<String> = ArrayList()
         val dateFormat = SimpleDateFormat("yyyy年MM月dd日")
@@ -46,6 +39,15 @@ class SendService(context: Context, workerParams: WorkerParameters) :
             }
         }
         if(stringList.size>0) {
+            var notificationChannel: NotificationChannel?
+            var notificationManager: NotificationManager? = null
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                notificationChannel =
+                    NotificationChannel("important", "Important", NotificationManager.IMPORTANCE_HIGH)
+                notificationManager =
+                    (applicationContext.getSystemService(Service.NOTIFICATION_SERVICE) as NotificationManager)
+                notificationManager.createNotificationChannel(notificationChannel)
+            }
             val intent2 = Intent(applicationContext, MainActivity::class.java)
             val pi = PendingIntent.getActivity(applicationContext, 0, intent2, 0)
             val notification2: Notification = Notification.Builder(applicationContext, "important")
@@ -54,6 +56,7 @@ class SendService(context: Context, workerParams: WorkerParameters) :
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.drawable.ic_btn_speak_now)
                 .setContentIntent(pi)
+                .setAutoCancel(true)
                 .build()
             notificationManager?.notify(2, notification2)
         }

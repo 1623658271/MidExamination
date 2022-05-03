@@ -41,8 +41,9 @@ class UniverseTwoAdapter(private val context: Context, var starList:List<StarDat
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if(position!=starList.size) {
+            Log.d(TAG, "onBindViewHolder: "+position+" "+buttonList.size )
             var starData = starList[position]
-            if(buttonList.size<starList.size) {
+            if(buttonList.size<starList.size && !buttonList.contains(holder.mImage)) {
                 buttonList.add(holder.mImage)
                 textViewList.add(holder.mName)
             }
@@ -81,6 +82,10 @@ class UniverseTwoAdapter(private val context: Context, var starList:List<StarDat
         this.notifyDataSetChanged()
     }
 
+    fun clearButtonList(){
+        buttonList.clear()
+    }
+
     fun select(){
         imageButtonSelectedUtil.selectButton(buttonList,Color.BLUE,textViewList)
     }
@@ -95,7 +100,7 @@ class UniverseTwoAdapter(private val context: Context, var starList:List<StarDat
 
     override fun getItemCount(): Int {
         Log.d(TAG, "getItemCount: "+starList.size+1)
-        return starList.size+1
+        return starList.filter { it.bigTime!="已点亮" }.size+1
     }
 
     interface OnItemSelectedListener {

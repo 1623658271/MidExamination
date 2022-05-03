@@ -43,7 +43,7 @@ class CountService : Service() {
 
         val notification1: Notification = Notification.Builder(this, "important")
             .setContentTitle("正在帮您照看宇宙")
-            .setContentText("时刻准备(=-=)着通知你点亮星球")
+            .setContentText("每15分钟查看是否有星球可点亮")
             .setWhen(System.currentTimeMillis())
             .setSmallIcon(R.drawable.ic_btn_speak_now)
             .setContentIntent(pi)
@@ -51,7 +51,7 @@ class CountService : Service() {
         startForeground(1, notification1)
         var sendWorkRequest = PeriodicWorkRequest.Builder(SendService::class.java,15,TimeUnit.MINUTES)
             .addTag("通知更新星球的work")
-            .setInitialDelay(5,TimeUnit.SECONDS)
+            .setInitialDelay(2,TimeUnit.SECONDS)
             .setBackoffCriteria(
                 BackoffPolicy.LINEAR,
                 OneTimeWorkRequest.MIN_BACKOFF_MILLIS,

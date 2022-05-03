@@ -48,6 +48,7 @@ class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         init()
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
@@ -110,7 +111,7 @@ class SecondActivity : AppCompatActivity() {
         })
 
         createBtn.setOnClickListener {
-            if(mRVAdapter.isSelectedOne() && !TextUtils.isEmpty(tvNewTime.text) && !TextUtils.isEmpty(edNewName.text)){
+            if(tvNewTime.text!="xx年xx月xx日" && !TextUtils.isEmpty(tvNewTime.text) && !TextUtils.isEmpty(edNewName.text)){
                 database.getStarDao().insert(StarData(edNewName.text.toString(),
                 starDataList[p],0,tvNewTime.text.toString(),edNewRemark.text.toString()))
 

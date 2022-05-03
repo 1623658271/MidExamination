@@ -36,7 +36,7 @@ class CreateRVAdapter(private val context: Context, private var starList:Mutable
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var starData = starList[position]
-        if(buttonList.size<starList.size) {
+        if(buttonList.size<starList.size && !buttonList.contains(holder.mImage)) {
             buttonList.add(holder.mImage)
             textViewList.add(holder.mName)
         }

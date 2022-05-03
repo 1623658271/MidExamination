@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity(),RadioGroup.OnCheckedChangeListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        init()
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        init()
         startMessage()
     }
 
