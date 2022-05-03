@@ -2,10 +2,11 @@ package com.example.midexamination
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import android.view.View
+import android.widget.RadioButton
 import android.widget.RadioGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.midexamination.adapter.FragmentPagerAdapter
@@ -46,6 +47,16 @@ class MainActivity : AppCompatActivity(),RadioGroup.OnCheckedChangeListener {
         vp2Adapter = FragmentPagerAdapter(this,list)
         vp2.adapter = vp2Adapter
         vp2.currentItem = 0
+        vp2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                when(position){
+                    0-> findViewById<RadioButton>(R.id.RB_time_counter).isChecked = true
+                    1->findViewById<RadioButton>(R.id.RB_universe).isChecked = true
+                    2->findViewById<RadioButton>(R.id.RB_my).isChecked = true
+                }
+            }
+        })
     }
 
     override fun onDestroy() {
