@@ -1,6 +1,7 @@
 package com.example.midexamination.service
 
 import android.R
+import android.annotation.SuppressLint
 import android.app.*
 import android.content.Intent
 import android.os.Build
@@ -25,6 +26,7 @@ class CountService : Service() {
         throw UnsupportedOperationException("Not yet implemented")
     }
 
+    @SuppressLint("UnspecifiedImmutableFlag")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate() {
         super.onCreate()
@@ -39,7 +41,12 @@ class CountService : Service() {
         }
 
         val intent = Intent(this, MainActivity::class.java)
-        val pi = PendingIntent.getActivity(this, 0, intent, 0)
+        val pi:PendingIntent
+        if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S){
+            pi = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+        }else{
+            pi = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+        }
 
         val notification1: Notification = Notification.Builder(this, "important")
             .setContentTitle("正在帮您照看宇宙")
