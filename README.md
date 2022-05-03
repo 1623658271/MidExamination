@@ -2,12 +2,11 @@
 ## 星球App介绍  
 注：削减了部分需求，加上了部分主观臆造的功能  
 ### 页面  
-由四个Activity和五个Fragment组成
-第一个Activity："计时器"页面，"universe"页面，"我的"页面（五个fragment）
-第二个Activity："创建星球"界面
-第三个Activity："时间历程"界面
-第四个Activity："成就"界面
-
+由四个Activity和五个Fragment组成  
+第一个Activity："计时器"页面，"universe"页面，"我的"页面（五个fragment）  
+第二个Activity："创建星球"界面  
+第三个Activity："时间历程"界面  
+第四个Activity："成就"界面  
 ### 功能及玩法  
 **计时器记录历程**  
 初始时分配三个星球，每个星球具有一个独立的计时器，当你停留在这个界面时  
